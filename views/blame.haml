@@ -1,0 +1,26 @@
+- if travis
+  .blame
+    - if travis && travis.status == 1
+      %span.avatar
+        %img{:src => user['avatar_url']}
+      %p
+        Name: #{user['name']}
+      %p
+        Github:
+        %a{:href => user['html_url']}
+          = user['login']
+      %p
+        Email: #{user['email']}
+      %p
+        Location: #{user['location']}
+    - elsif travis && travis.status == 0
+      %h1 No blame! <3
+    - else
+      %h1 Not found :(
+= haml :form
+%footer
+  %p
+    by
+    %a{:href => 'http://github.com/nashby/whoistoblame'}
+      nashby
+

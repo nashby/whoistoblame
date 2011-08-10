@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title Who is to blame?
+    %link{"rel" => "stylesheet", "href" => "css/style.css", "type" => "text/css"}
+  %body
+    %header
+      %h2 Who is to blame?
+      %h3
+        -if travis && travis.status
+          Build status of #{project}:
+          - if travis && travis.status == 1
+            %span.fail Failed!
+          - elsif travis && travis.status == 0
+            %span.pass Passed!
+    = yield
